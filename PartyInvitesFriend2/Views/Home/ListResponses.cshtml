@@ -1,0 +1,39 @@
+﻿@IEnumerable <PartyInvitesFriend2.Models.GuestResponse>
+    @{
+        Layout = null;
+    }
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Responses</title>
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="text-center p-2">
+            <h2>İşte partiye katılan insanların listesi</h2>
+            <table class="table table-bordered table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th>İsim</th>
+                        <th>E-posta</th>
+                        <th>Telefon</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (PartyInvitesFriend2.Models.GuestResponse r in Model)
+
+                    {
+                        <tr>
+                            <td>@r.Name</td>
+                            <td>@r.Email</td>
+                            <td>@r.Phone</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
