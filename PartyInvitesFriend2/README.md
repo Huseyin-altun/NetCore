@@ -12,4 +12,4 @@
 
 
 ####  🌟 Partiye Katılanların Listesi
-![image](https://github.com/Huseyin-altun/NetCore/blob/screen/screen/1.png)<br>
+![image](https://github.com/Huseyin-altun/NetCore/blob/screen/screen/2.png)<br>
