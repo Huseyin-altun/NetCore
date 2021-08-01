@@ -1,0 +1,56 @@
+﻿@model CarListMvc.Models.Car
+
+<br />
+<h2 class="text-info"> Araba @(Model.CarID!=0 ? "Düzenle" : "Oluştur")</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        @if (Model.CarID != 0)
+        {
+            <input type="hidden" asp-for="CarID" />
+        }
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Model">Model</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Price">Fiyat</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Popular">Popülerite</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Popular" class="form-control" />
+                <span asp-validation-for="Popular" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <button type="submit" class="btn btn-primary form-control">
+                    @(Model.CarID != 0 ? "Güncelle" : "Oluştur")
+                </button>
+            </div>
+            <div class="col-3">
+                <a asp-action="Index" class="btn btn-success form-control">Araba Listesine Dön</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
