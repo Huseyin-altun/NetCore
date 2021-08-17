@@ -1,0 +1,45 @@
+﻿
+@model List<YazilimBlog.Models.Article>
+<div class="container">
+    <div class="row">
+
+        <div class="section-title">
+            <h2>Son Yazılar</h2>
+            <span class="line-bar">...</span>
+        </div>
+
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 col-sm-4">
+
+
+                <div class="card ">
+                    <div class="card-header">
+                        <img src="@item.Image" alt="ballons" />
+                    </div>
+                    <div class="card-body">
+                        <getcategories articles-id="@item.ArticlesID"></getcategories>
+                        <h4>
+                            <a asp-action="BlogDetails" asp-route-id="@item.ArticlesID">@item.WriteTitle</a>
+                        </h4>
+                        <p>
+                            @item.Write
+                        </p>
+                        <div>
+                            <a asp-action="BlogDetails" asp-route-id="@item.ArticlesID" class="btn section-btn">Okumaya Devam Et</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+
+    </div>
+</div>
+
+
+
+

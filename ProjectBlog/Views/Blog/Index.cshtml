@@ -1,0 +1,127 @@
+﻿    @model PagedList.Core.IPagedList<YazilimBlog.Models.Article>
+
+@section Styles {
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="~/hus/tech.css" rel="stylesheet" />
+    <link href="~/hus/style.css" rel="stylesheet" />
+    <link href="~/hus/colors.css" rel="stylesheet" />
+    <link href="~/hus/responsive.css" rel="stylesheet" />
+}
+
+
+<div id="wrapper" style="margin-top:40px !important">
+
+
+
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <div class="sidebar">
+                        <div class="widget">
+                            <div class="banner-spot clearfix">
+                                <div class="banner-img">
+
+                                    <img src="~/images/banner_07.jpg" class="img-fluid" />
+                                </div><!-- end banner-img -->
+                            </div><!-- end banner -->
+                        </div><!-- end widget -->
+
+
+
+                        <div class="widget">
+                            <h2 class="widget-title">Popüler Yazılar</h2>
+                            <div class="blog-list-widget">
+                                <div class="list-group">
+                                    @await Component.InvokeAsync("PopularPost")
+
+                                </div>
+                            </div><!-- end blog-list -->
+                        </div><!-- end widget -->
+
+
+
+                        <div class="widget">
+                            <h2 class="widget-title">Follow Us</h2>
+
+                            <div class="row text-center">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <a href="#" class="social-button facebook-button">
+                                        <i class="fa fa-facebook"></i>
+                                        <p>27k</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div><!-- end widget -->
+
+                        <div class="widget">
+                            <div class="banner-spot clearfix">
+                                <div class="banner-img">
+                                    <img src="~/images/work-image1.jpg" alt="" class="img-fluid">
+                                </div><!-- end banner-img -->
+                            </div><!-- end banner -->
+                        </div><!-- end widget -->
+                    </div><!-- end sidebar -->
+                </div><!-- end col -->
+
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-wrapper">
+                        <div class="blog-grid-system">
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+
+
+                                    <div class="col-md-6">
+                                        <div class="blog-box">
+                                            <div class="post-media">
+                                                <a asp-controller="Home" asp-action="BlogDetails" asp-route-id="@item.ArticlesID">
+                                                    <img src="@item.CoverImage" alt="" class="img-fluid"  width="400x" height="400px">
+                                                    <div class="hovereffect">
+                                                     
+                                                    </div><!-- end hover -->
+                                                </a>
+                                            </div><!-- end media -->
+                                            <div class="blog-meta big-meta">
+                                                <br />
+                                                <getcategories articles-id="@item.ArticlesID"></getcategories>
+                                                <h4><a asp-controller="Home" asp-action="BlogDetails"  asp-route-id="@item.ArticlesID">@item.WriteTitle</a></h4>
+                                                <p>@item.Write</p>
+                                                <small><a title="">@item.Date</a></small><br />
+        
+
+                                            </div><!-- end meta -->
+                                        </div><!-- end blog-box -->
+                                    </div><!-- end col -->
+
+                                }
+
+
+                                <pager list="@Model" asp-controller="Blog" asp-action="Index" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </div><!-- end row -->
+                        </div><!-- end blog-grid-system -->
+                    </div><!-- end page-wrapper -->
+
+                    <hr class="invis3">
+
+                   
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section>
+
+</div>

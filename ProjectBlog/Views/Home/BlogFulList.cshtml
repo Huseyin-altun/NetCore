@@ -1,0 +1,47 @@
+﻿
+@model List<YazilimBlog.Models.Article>
+
+<section id="blog" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title">
+                    <h2>Tüm Yazılar</h2>
+                    <span class="line-bar">...</span>
+                </div>
+            </div>
+
+
+
+
+
+
+            @foreach (var item in Model)
+            {
+
+
+                <div class="col-md-6 col-sm-6">
+                    <!-- BLOG THUMB -->
+                    <div class="media blog-thumb">
+                        <div class="media-object media-left">
+
+                            <img src="@item.Image" alt="" width="300" height="500">
+                        </div>
+                        <div class="media-body blog-info">
+                            <small><i class="fa fa-clock-o">@item.Date.ToString("dd MMMM yyyy")</i></small>
+                            <h3><a asp-action="BlogDetails" asp-route-id="@item.ArticlesID">@item.WriteTitle</a></h3>
+                            <p>
+                                @item.Write
+                                <getcategories articles-id="@item.ArticlesID" ></getcategories>
+
+
+                            </p>
+                            <a asp-action="BlogDetails" asp-route-id="@item.ArticlesID" class="btn section-btn">Okumaya Devam Et</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

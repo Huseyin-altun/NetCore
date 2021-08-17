@@ -1,0 +1,34 @@
+﻿@model YazilimBlog.Models.Category
+
+@{
+    Layout = "_Panel";
+}
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+
+        <div class="row mt-1 ">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">Yazi Ekle</div>
+                        <hr>
+                        <form method="post" asp-action="KategoriGuncele" asp-controller="Panel">
+                            @Html.HiddenFor(x => x.CategoryID)
+                            <div class="form-group">
+                                <label for="input-6">Başlık</label>
+                                <input type="text" class="form-control form-control-rounded" asp-for="CategoryName" placeholder="Başlık Girişi">
+                                <span asp-validation-for="CategoryName" class="alert-danger"></span>
+                            </div>
+                          
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-light btn-round px-5 "><i class="icon-action-redo"></i> Yayınla</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--End Row-->

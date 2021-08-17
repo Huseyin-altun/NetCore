@@ -1,0 +1,154 @@
+﻿
+@model YazilimBlog.Models.Message
+
+
+<section id="home" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-sm-12">
+                <div class="home-info">
+                    <h1>Hüseyin Altun Web Developer</h1>
+                    <a href="#about" class="btn section-btn smoothScroll">Hakkımda</a>
+                    <span>
+
+
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <div class="home-video">
+                    <div class="embed-responsive embed-responsive-16by9">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-5 col-sm-6">
+                <div class="about-info">
+                    <div class="section-title">
+                        <h2>Ben Kimim ?</h2>
+                        <span class="line-bar">...</span>
+                    </div>
+                    <p>Yazılım Yolculuğuna devam eden genç bir geliştiriciyim</p>
+                    <p>Daha Fazla Bilgi İçin Portofoliomu inceleyebilirsiniz</p>
+                    <a href="https://huseyinaltun.herokuapp.com/">Burdan Ulaşabilirsiniz</a>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="about-info skill-thumb">
+
+                    <strong>Web Yazılım</strong>
+                    <span class="pull-right">70%</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div>
+                    </div>
+
+                    <strong>Desktop Uygulamalar</strong>
+                    <span class="pull-right">60%</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+                    </div>
+
+
+                    <strong>Admin  Paneleri</strong>
+                    <span class="pull-right">70%</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="about-image">
+                    <!-- <img src="images/about-image.jpg" class="img-responsive" alt=""> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- BLOG -->
+<section id="blog" data-stellar-background-ratio="0.5">
+  
+
+
+                @await Component.InvokeAsync("BlogTop")
+
+
+
+</section>
+
+
+
+
+<!-- CONTACT -->
+<section id="contact" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title">
+                    <h2>İletişime geçiniz</h2>
+                    <span class="line-bar">...</span>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-sm-8">
+
+                <!-- CONTACT FORM HERE -->
+                <form  method="post" asp-action="Index" asp-controller="Home">
+                    <div class="col-md-6 col-sm-6">
+                        <input type="text" class="form-control" placeholder="Ad Soyad" asp-for="FullName">
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                        <input type="email" class="form-control" placeholder="E-posta adresiniz" asp-for="Email">
+                    </div>
+
+
+
+
+                    <div class="col-md-12 col-sm-12">
+                        <textarea class="form-control" rows="6" placeholder="Mesajınız" asp-for="Messages"></textarea>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <input type="submit" class="form-control"  value="Mesaj gönder">
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="google-map">
+                    <!-- How to change your own map point
+                            1. Go to Google Maps
+                            2. Click on your location point
+                            3. Click "Share" and choose "Embed map" tab
+                            4. Copy only URL and paste it within the src="" field below
+                    -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.3030413476204!2d100.5641230193719!3d13.757206847615207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf51ce6427b7918fc!2sG+Tower!5e0!3m2!1sen!2sth!4v1510722015945" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+

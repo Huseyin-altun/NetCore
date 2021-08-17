@@ -1,0 +1,70 @@
+﻿@model YazilimBlog.Models.Article
+
+@{
+    Layout = "_Panel";
+}
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+
+        <div class="row mt-1 ">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">Yazi Ekle</div>
+                        <hr>
+                        <form method="post" asp-action="YaziGuncelle" asp-controller="Panel">
+                            @Html.HiddenFor(x => x.ArticlesID)
+                            <div class="form-group">
+                                <label for="input-6">Başlık</label>
+                                <input type="text" class="form-control form-control-rounded" asp-for="WriteTitle" placeholder="Başlık Girişi">
+                                <span asp-validation-for="WriteTitle"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-7">Ön Yazı</label>
+                                <input type="text" class="form-control form-control-rounded" asp-for="Write" placeholder="Ön Yazı Girişi">
+                                <span asp-validation-for="Write"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-8">Uzun Yazı</label>
+                                <textarea class="form-control" asp-for="WriteLength" placeholder="Uzun Yazı Girişi"></textarea>
+                                <span asp-validation-for="WriteLength"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-9">Ön Resim Url</label>
+                                <input type="text" class="form-control form-control-rounded" asp-for="CoverImage" placeholder="Resim Url">
+                                <span asp-validation-for="CoverImage"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-10">Resim Url</label>
+                                <input type="text" class="form-control form-control-rounded" asp-for="Image" placeholder="Resim Url">
+                                <span asp-validation-for="Image"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-10">Kategori Seçimi</label>
+                                <select class="form-control" asp-for="Stat" asp-items="ViewBag.CatName">
+                                    <option value="0" selected="selected">Kategori Ekleme</option>
+                                </select>
+                            </div>
+                                <br />
+                                <div class="form-group">
+
+                                    <button type="submit" class="btn btn-light btn-round px-5 "><i class="icon-action-redo"></i> Yayınla</button>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--End Row-->
+@section Scripts{
+
+    <script src="~/ckeditor_4.16.1_standard/ckeditor/ckeditor.js"></script>
+
+    <script>
+
+        CKEDITOR.replace("WriteLength");
+    </script>
+}

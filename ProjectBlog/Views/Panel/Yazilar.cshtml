@@ -1,0 +1,72 @@
+﻿
+@model PagedList.Core.IPagedList<YazilimBlog.Models.Article>
+
+@{
+    Layout = "_Panel";
+}
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Tum Yazılar</h5>
+                <a class="btn btn-white text-black-50" asp-action="YaziEkle">Yeni Yazı Oluştur</a>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+
+                                <th>Yazı Başlığı</th>
+                                <th>Resim</th>     
+                                <th>Kategori</th>
+                                <th>İçerik</th>
+                                <th>Tarih</th>
+                                <th>Güncele</th>
+                                <th>Sil</th>
+                                <th>Popüler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td><a asp-controller="Home" asp-action="BlogDetails" asp-route-id="@item.ArticlesID" target="_blank"> @item.WriteTitle</a></td>
+                                <td><img src="@item.CoverImage" class="product-img" alt="product img"></td>
+                                <td><getcategories articles-id="@item.ArticlesID"></getcategories></td>
+                                <td>@item.Write.Substring(0,10)</td>
+                                <td>@item.Date.ToString("dd MMMM yyyy")</td>
+
+                                <td><a class="btn btn-primary" asp-action="YaziGuncelle" asp-route-id="@item.ArticlesID">Guncelle</a></td>
+                                <td><a class="btn btn-danger" asp-action="YaziSil" asp-route-id="@item.ArticlesID">Sil</a></td>
+                                <td><a 
+                                      class=" @if (@item.Star==1)
+                                      {
+                                          @Html.Raw("btn btn-sm btn-success");
+                                      }
+                                      else
+                                      {
+                                             @Html.Raw("btn btn-sm btn-danger");
+                                      } "
+
+
+
+                                       asp-action="pp" asp-route-id="@item.ArticlesID"><i class="zmdi zmdi-notifications-active"></i></a></td>
+                            </tr>
+                            }
+                            <tr>
+                                <td colspan="12">
+                                    <pager list="@Model" asp-controller="Panel" asp-action="Yazilar" />
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

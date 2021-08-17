@@ -1,0 +1,113 @@
+﻿@model Profile
+@{
+    Layout = "_Panel";
+}
+
+
+        <div class="row mt-3">
+            <div class="col-lg-4">
+                <div class="card profile-card-2">
+                    <div class="card-img-block">
+                        
+               
+                        <img  class="img-fluid" src="~/images/@Model.CoverImage"  alt="Card image cap">
+                    </div>
+                    <div class="card-body pt-5">
+                        <img src="~/images/@Model.ProfileImage" alt="profile-image" class="profile">
+                        <h5 class="card-title">@Model.FirstName @Model.LastName </h5>
+                        <p class="card-text">@Model.About</p>
+                        <div class="icon-block">
+                            <a href="javascript:void();"><i class="fa fa-facebook bg-facebook text-white"></i></a>
+                            <a href="javascript:void();"> <i class="fa fa-twitter bg-twitter text-white"></i></a>
+                            <a href="javascript:void();"> <i class="fa fa-google-plus bg-google-plus text-white"></i></a>
+                        </div>
+                    </div>
+
+          
+                </div>
+
+            </div>
+
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
+                           
+                    
+                            <li class="nav-item">
+                                <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Bilgileri Düzenle</span></a>
+                            </li>
+                        </ul>
+                        <div class="tab-content p-3">
+                     
+                            <div class="tab-pane" id="edit">
+                                <form method="post"  asp-controller="Profile" asp-action="ProfileDetails" enctype="multipart/form-data">
+
+                                    @Html.HiddenFor(x=>x.ProfileID)
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Adınız</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" asp-for="FirstName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Soyadınız</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" asp-for="LastName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="email" asp-for="Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Profil Resmi</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="file" name="formFile">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Kapak Resmi</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="file" name="formFile2">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Hakkında</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" asp-for="About">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Şifre</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" asp-for="Password">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Kullanıcı Adı</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" asp-for="UserName">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                                        <div class="col-lg-9">
+                                            <input type="reset" class="btn btn-secondary" value="İptal Et">
+                                            <input type="submit" class="btn btn-primary" value="Kaydet">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+  

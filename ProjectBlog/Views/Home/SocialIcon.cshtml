@@ -1,0 +1,7 @@
+﻿@model List<YazilimBlog.Models.SocialMedia>
+
+
+@foreach (var item in Model)
+{
+<li><a href="@item.SocialLink"><i class="@item.SocialIcon"></i></a></li>
+}

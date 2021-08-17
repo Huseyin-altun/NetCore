@@ -1,0 +1,50 @@
+﻿
+@model PagedList.Core.IPagedList<YazilimBlog.Models.Category>
+
+@{
+    Layout = "_Panel";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Tum Yazılar</h5>
+                <a class="btn btn-white text-black-50" asp-action="KategoriEkle">Kategori Oluştur</a>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+
+                                <th>Kategori Adı</th>
+                                <th>Güncele</th>
+                                <th>Sil</th>
+                          
+                     
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>@item.CategoryName</td>
+                                <td><a class="btn btn-primary" asp-action="KategoriGuncele" asp-route-id="@item.CategoryID">Guncelle</a></td>
+                                <td><a class="btn btn-danger" asp-action="KategoriSil" asp-route-id="@item.CategoryID">Sil</a></td>
+
+                            </tr>
+                            }
+                            <tr>
+                                <td colspan="3" align="center">
+                                    <pager list="@Model" asp-controller="Panel" asp-action="Kategori" />
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
